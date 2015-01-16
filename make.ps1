@@ -63,7 +63,7 @@ function Build-SFX () {
     &"$SevenZip\7zr" -r a "..\$BuildStem.7z" "*"
 
     Set-Location (Get-RepoFullPath "$InstallBase")
-    foreach ($Config in @("CI","DEV")) {
+    foreach ($Config in @("CI","CI-REBOOT","DEV","DEV-REBOOT")) {
         Write-Output "Creating $Config self-extracting file"
         Get-Content "$SevenZip\7zSD.sfx", ("$ScriptPath\$Config" + "sfxconfig.txt"), "$BuildStem.7z" -Encoding Byte -Read 512 | Set-Content "$BuildStem-$Config.exe" -Encoding Byte
     }
