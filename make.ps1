@@ -56,9 +56,21 @@ function Copy-Install {
     Copy-Item (Get-ChildItem -Path (RepoFullPath "repo\*.nupkg")) "$InstallDir\Boxstarter\BuildPackages" -Recurse
 }
 
+function Build-SFX () {
+    Set-Location "$InstallDir"
+    $SevenZip = "$ScriptPath\7z920_extra"
+    &"$SevenZip\7zr" -r a "..\$BuildStem.7z" "*"
+
+    Set-Location (Get-RepoFullPath "$InstallBase")
+    foreach ($Config in @("CI","DEV")) {
+        Get-Content "$SevenZip\7zSD.sfx", ("$ScriptPath\$Config" + "sfxconfig.txt"), "$BuildStem.7z" -Encoding Byte -Read 512 | Set-Content "$BuildStem-$Config.exe" -Encoding Byte
+    }
+}
+
 Clean
 Build-Packages
 Copy-Install
+Build-SFX
 
 #
 
