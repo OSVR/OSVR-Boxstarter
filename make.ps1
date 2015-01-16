@@ -27,7 +27,7 @@ function Clean {
     foreach ($BadFile in $BadFiles) {
         if (Test-Path $BadFile) {
             Write-Output "Cleaning $BadFile"
-            Remove-Item $BadFile
+            Remove-Item $BadFile -Recurse
         }
     }
 }
@@ -37,18 +37,23 @@ function Build-Packages {
     Import-Module Boxstarter.Chocolatey
     #$OrigLocalRepo = (Get-BoxStarterConfig)["LocalRepo"]
 
-    $Boxstarter.LocalRepo = Get-RepoFullPath "repo"
-
-    Invoke-BoxstarterBuild -all
+    #$Boxstarter.LocalRepo = Get-RepoFullPath "repo"
+    #Invoke-BoxstarterBuild -all
+    Set-Location (Get-RepoFullPath "repo")
+    foreach ($nuspec in @(Get-ChildItem -path "$PWD\*.nuspec" -recurse)) {
+        Set-Location $nuspec.Directory.Parent.FullName
+        nuget pack (join-path $nuspec.Directory $nuspec.Name) -NoPackageAnalysis -NonInteractive
+    }
 
     #Set-BoxstarterConfig -LocalRepo $OrigLocalRepo
 }
 
 function Copy-Install {
+    Import-Module Boxstarter.Chocolatey
     Write-Output "Copying Boxstarter to $InstallDir..."
-    mkdir $InstallDir
+    mkdir -Path $InstallDir
     Copy-Item $Boxstarter.BaseDir $InstallDir -Recurse
-    Copy-Item (Get-ChildItem -Path (RepoFullPath "repo\*.nupkg")) "$InstallDir\BuildPackages"
+    Copy-Item (Get-ChildItem -Path (RepoFullPath "repo\*.nupkg")) "$InstallDir\Boxstarter\BuildPackages" -Recurse
 }
 
 Clean
