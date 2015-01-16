@@ -5,7 +5,6 @@ try {
     Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
     Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart
     Update-ExecutionPolicy UnRestricted
-    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy
     Disable-InternetExplorerESC
 
     # Common install
