@@ -7,6 +7,8 @@ cinst vcexpress2010
 #cinst visualstudio2012wdx
 cinst unity -source "https://www.myget.org/F/unity/"
 #cinst qt-sdk-windows-x86-msvc2013_opengl
+
+cinst bginfo # for marking machine on desktop
  
 cinst oculus-sdk -source "https://www.myget.org/F/oculus-rift/"
 cinst oculus-runtime -source "https://www.myget.org/F/oculus-rift/"
