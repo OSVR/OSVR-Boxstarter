@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>OSVR-CI-Environment</id>
+    <version>1.0.0</version>
+    <authors>Ryan</authors>
+    <owners>Ryan</owners>
+    <description>Environment for a Jenkins CI node for OSVR</description>
+    <tags>Boxstarter</tags>
+  </metadata>
+</package>
