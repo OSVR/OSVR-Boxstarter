@@ -1,1 +1,1 @@
-@powershell -NoProfile -ExecutionPolicy bypass "%~dp0make.ps1"
+@powershell -ExecutionPolicy bypass "%~dp0make.ps1"
