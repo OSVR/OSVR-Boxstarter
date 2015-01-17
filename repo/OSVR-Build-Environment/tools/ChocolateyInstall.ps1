@@ -1,6 +1,6 @@
 try {
     Update-ExecutionPolicy Unrestricted
-    cinst git
+    cinst git -Version 1.9.5.20150114 -params '"/GitOnlyOnPath /NoAutoCrlf"'
     cinst poshgit
     cinst 7zip
     cinst cmake
