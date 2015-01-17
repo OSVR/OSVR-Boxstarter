@@ -1,12 +1,13 @@
 try {
-    # Settings
-    Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
-    Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart
     Update-ExecutionPolicy UnRestricted
     Disable-InternetExplorerESC
 
     # Common install
     Install-BoxstarterPackage -PackageName OSVR-Build-Environment -DisableReboots
+
+    # Settings
+    Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
+    Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart
 
     # Jenkins node updater
     Install-BoxstarterPackage -PackageName OSVR-Jenkins-Updater -DisableReboots
