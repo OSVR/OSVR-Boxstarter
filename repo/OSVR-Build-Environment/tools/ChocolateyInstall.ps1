@@ -2,7 +2,7 @@ try {
     Update-ExecutionPolicy Unrestricted
     cinst chocolatey -force
     cinst boxstarter -force
-    cinst git -Version 1.9.5.20150114 -params '"/GitOnlyOnPath /NoAutoCrlf"'
+    cinst git -params '"/GitOnlyOnPath /NoAutoCrlf"'
     cinst poshgit
     cinst 7zip
     cinst cmake
