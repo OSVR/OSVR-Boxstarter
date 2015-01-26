@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>OSVR-CI-Environment</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Ryan</authors>
     <owners>Ryan</owners>
     <description>Environment for a Jenkins CI node for OSVR</description>
