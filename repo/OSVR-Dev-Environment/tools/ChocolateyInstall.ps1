@@ -6,7 +6,6 @@ try {
     Install-BoxstarterPackage -PackageName OSVR-Build-Environment -DisableReboots
 
     # Packages
-    cinst notepadplusplus
     cinst sysinternals
     cinst putty
     cinst winmerge
@@ -16,7 +15,6 @@ try {
     cinst git-credential-winstore
     cinst notepad2-mod
     cinst tortoisemerge
-    cinst boxstarter
     
     # Markdown tools
     cinst pandoc

@@ -11,6 +11,7 @@ try {
     cinst boost-x64-msvc2013 -source "https://www.myget.org/F/boost/"
     cinst boost-x86-msvc2013 -source "https://www.myget.org/F/boost/"
     cinst nuget.commandline
+    cinst notepadplusplus
     Write-ChocolateySuccess 'OSVR-Build-Environment'
 } catch {
   Write-ChocolateyFailure 'OSVR-Build-Environment' $($_.Exception.Message)
