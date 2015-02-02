@@ -25,8 +25,6 @@ try {
     cinst oculus-sdk -source "https://www.myget.org/F/oculus-rift/"
     cinst oculus-runtime -source "https://www.myget.org/F/oculus-rift/"
 
-    cinst wixtoolset
-
     cinst bginfo # for marking machine on desktop
 
     # Git configuration
