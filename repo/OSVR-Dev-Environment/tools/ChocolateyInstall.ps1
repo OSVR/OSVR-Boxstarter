@@ -15,6 +15,10 @@ Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileEx
     cinst notepad2-mod
     cinst tortoisemerge
     cinst boxstarter
+    
+    # Markdown tools
+    cinst pandoc
+    cinst markpad
 
     Write-ChocolateySuccess 'OSVR-Dev-Environment'
 } catch {
