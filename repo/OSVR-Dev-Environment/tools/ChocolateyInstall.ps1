@@ -1,9 +1,10 @@
 # OSVR Dev Environment
 try {
-Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
+    Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
+
     # Common install
     Install-BoxstarterPackage -PackageName OSVR-Build-Environment -DisableReboots
-    
+
     # Packages
     cinst notepadplusplus
     cinst sysinternals
@@ -23,6 +24,6 @@ Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileEx
 
     Write-ChocolateySuccess 'OSVR-Dev-Environment'
 } catch {
-  Write-ChocolateyFailure 'OSVR-Dev-Environment' $($_.Exception.Message)
-  throw
+    Write-ChocolateyFailure 'OSVR-Dev-Environment' $($_.Exception.Message)
+    throw
 }

@@ -35,7 +35,7 @@ try {
     Invoke-FromTask "git config --global core.eol lf" -IdleTimeout 20
 
     Write-ChocolateySuccess 'OSVR-CI-Environment'
-} catch {
-  Write-ChocolateyFailure 'OSVR-CI-Environment' $($_.Exception.Message)
-  throw
+    } catch {
+    Write-ChocolateyFailure 'OSVR-CI-Environment' $($_.Exception.Message)
+    throw
 }
