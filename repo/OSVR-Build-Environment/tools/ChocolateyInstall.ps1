@@ -1,8 +1,8 @@
 # OSVR Build Environment - Common package to both DEV and CI
 try {
     Update-ExecutionPolicy Unrestricted
-    cinst chocolatey -force
-    cinst boxstarter -force
+    cinst chocolatey
+    cinst boxstarter
     cinst git -params '"/GitOnlyOnPath /NoAutoCrlf"'
     cinst poshgit
     cinst 7zip
