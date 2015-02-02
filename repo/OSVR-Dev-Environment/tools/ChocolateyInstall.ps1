@@ -1,3 +1,4 @@
+# OSVR Dev Environment
 try {
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
     # Common install

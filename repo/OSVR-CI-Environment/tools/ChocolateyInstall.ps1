@@ -1,3 +1,4 @@
+# OSVR CI Environment
 try {
     Update-ExecutionPolicy UnRestricted
     Disable-InternetExplorerESC
