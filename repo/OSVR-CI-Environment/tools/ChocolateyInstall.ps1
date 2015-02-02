@@ -16,7 +16,31 @@ try {
     # Packages
     cinst javaruntime
     cinst dotnet4.5
-    cinst VisualStudioExpress2013WindowsDesktop -source "https://www.myget.org/F/rpavlik-choco/"
+
+    $HasVS2013 = $false
+    $VSReg = 'Microsoft\DevDiv\vs\Servicing\12.0'
+    $VSEditions = @{
+        'expbsln' = 'Express Edition';
+    }
+    foreach ($Edition in @('Ultimate', 'Premium', 'Professional')) {
+        $VSEditions.Add($Edition.ToLower(), $Edition)
+    }
+
+    foreach ($baseReg in @('Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\', 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\')) {
+        if (Test-Path "$baseReg$vsReg") {
+            foreach ($Edition in $VSEditions.GetEnumerator()) {
+                $FullReg = "$baseReg$vsReg\" + $Edition.Name
+                Write-Verbose "Looking at $FullReg"
+            }
+        }
+    }
+
+    # TODO remove the external source here once 12.0.31101.1 is approved 
+    # https://chocolatey.org/packages/VisualStudioExpress2013WindowsDesktop
+    if (!$HasVS2013) {
+        cinst VisualStudioExpress2013WindowsDesktop -source "https://www.myget.org/F/rpavlik-choco/"
+    }
+
     cinst vcexpress2010
     #cinst visualstudio2012wdx
     cinst unity -source "https://www.myget.org/F/unity/"
