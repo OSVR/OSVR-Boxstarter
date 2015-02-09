@@ -23,6 +23,7 @@ function Clean {
     Write-Output "Cleaning..."
     $BadFiles = @(Get-ChildItem -Path (RepoFullPath "repo\*.nupkg") -Recurse)
     $BadFiles += Get-RepoFullPath "repo\OSVR-CI-Environment\tools\slave.jar"
+    $BadFiles += Get-RepoFullPath "repo\OSVR-Jenkins-Updater\slave.jar"
     $BadFiles += Get-RepoFullPath "$InstallBase"
 
     foreach ($BadFile in $BadFiles) {
