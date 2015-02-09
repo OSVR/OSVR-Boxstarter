@@ -13,6 +13,12 @@ try {
     # Jenkins node updater
     Install-BoxstarterPackage -PackageName OSVR-Jenkins-Updater -DisableReboots
 
+    # Add repositories
+    # TODO: when choco 0.9.9 hits, this will be the command format instead
+    # choco source add --name="rpavlik-choco" -s="https://www.myget.org/F/rpavlik-choco/"
+    choco sources add -name myget-unity -source https://www.myget.org/F/unity/
+    choco sources add -name myget-oculus -source https://www.myget.org/F/oculus-rift/
+
     # Packages
     cinst javaruntime
     cinst dotnet4.5
@@ -35,7 +41,7 @@ try {
         }
     }
 
-    # TODO remove the external source here once 12.0.31101.1 is approved 
+    # TODO remove the external source here once 12.0.31101.1 is approved
     # https://chocolatey.org/packages/VisualStudioExpress2013WindowsDesktop
     if (!$HasVS2013) {
         cinst VisualStudioExpress2013WindowsDesktop -source "https://www.myget.org/F/rpavlik-choco/"
@@ -43,6 +49,8 @@ try {
 
     cinst vcexpress2010
     #cinst visualstudio2012wdx
+
+    # Note that this does not license Unity - you still have a first-run thing there.
     cinst unity -source "https://www.myget.org/F/unity/"
     #cinst qt-sdk-windows-x86-msvc2013_opengl
 
@@ -56,7 +64,7 @@ try {
     Invoke-FromTask "git config --global core.eol lf" -IdleTimeout 20
 
     Write-ChocolateySuccess 'OSVR-CI-Environment'
-    } catch {
+} catch {
     Write-ChocolateyFailure 'OSVR-CI-Environment' $($_.Exception.Message)
     throw
 }
