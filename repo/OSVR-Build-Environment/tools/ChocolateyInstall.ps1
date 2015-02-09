@@ -15,6 +15,7 @@ try {
     cinst cmake
     cinst boost-x64-msvc2013 -source "https://www.myget.org/F/boost/"
     cinst boost-x86-msvc2013 -source "https://www.myget.org/F/boost/"
+    cinst opencv -source "https://www.myget.org/F/rpavlik-choco/"
 
     # Required for jsoncpp build and assorted good things.
     cinst python2
