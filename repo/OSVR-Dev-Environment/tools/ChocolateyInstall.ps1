@@ -13,12 +13,12 @@ try {
     cinst sumatrapdf
     cinst winscp
     cinst git-credential-winstore
-    cinst notepad2-mod
     cinst tortoisemerge
-    
+
     # Markdown tools
     cinst pandoc
     cinst markpad
+    # TODO package CuteMarkEd
 
     Write-ChocolateySuccess 'OSVR-Dev-Environment'
 } catch {

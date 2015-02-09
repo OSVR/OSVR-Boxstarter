@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>OSVR-CI-Environment</id>
-    <version>1.0.2</version>
+    <id>OSVR-General-Environment</id>
+    <version>1.0.0</version>
     <authors>Ryan</authors>
     <owners>Ryan</owners>
-    <description>Environment for a Jenkins CI node for OSVR</description>
+    <description>Environment for a human to do basic work with OSVR</description>
     <tags>Boxstarter</tags>
   </metadata>
 </package>

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>OSVR-Dev-Environment</id>
-    <version>1.0.1</version>
+    <id>OSVR-Base-Environment</id>
+    <version>1.0.0</version>
     <authors>Ryan</authors>
     <owners>Ryan</owners>
-    <description>Environment for a human developer for OSVR</description>
+    <description>Minimal, inoffensive installs for OSVR.</description>
     <tags>Boxstarter</tags>
   </metadata>
 </package>

@@ -1,0 +1,5 @@
+;!@Install@!UTF-8!
+Title="OSVR General Environment"
+ExecuteFile="Boxstarter\boxstarter.bat"
+ExecuteParameters="OSVR-General-Environment -DisableReboots"
+;!@InstallEnd@!
