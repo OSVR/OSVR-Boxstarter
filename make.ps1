@@ -59,6 +59,11 @@ function Copy-Install {
     Copy-Item (Get-ChildItem -Path (RepoFullPath "repo\*.nupkg")) "$InstallDir\Boxstarter\BuildPackages" -Recurse
 }
 
+# Example: Create-7ZipSFX 7z920_extra\7zSD.sfx MySFXConfig.txt MyFiles.7z MyOutputFile.exe
+function Create-7ZipSFX ($7zSFXModule, $SFXConfig, $7zFile, $Output) {
+    Get-Content "$7zSFXModule", "$SFXConfig", "$7zFile" -Encoding Byte -Read 512 | Set-Content "$Output" -Encoding Byte
+}
+
 function Build-SFX () {
     # Get list of configs
     Set-Location "$ScriptPath"
@@ -73,7 +78,7 @@ function Build-SFX () {
     Set-Location (Get-RepoFullPath "$InstallBase")
     foreach ($Config in $Configs) {
         Write-Output "Creating $Config self-extracting file"
-        Get-Content "$SevenZip\7zSD.sfx", ("$ScriptPath\$Config" + "sfxconfig.txt"), "$BuildStem.7z" -Encoding Byte -Read 512 | Set-Content "$BuildStem-$Config.exe" -Encoding Byte
+        Create-7ZipSFX "$SevenZip\7zSD.sfx" ("$ScriptPath\$Config" + "sfxconfig.txt") "$BuildStem.7z" "$BuildStem-$Config.exe"
     }
 }
 
