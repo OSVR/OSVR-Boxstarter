@@ -6,7 +6,8 @@ $Version = git describe --tags
 $InstallBase = "install"
 $BuildStem = "OSVR-Boxstarter-$Version"
 
-$Configs = @("CI","DEV")
+# All files in the root directory ending in this will result in a self-extracting installer.
+$ConfigBase = "sfxconfig.txt"
 
 function Get-RepoFullPath ($RelativePath) {
     Join-Path -ChildPath $RelativePath -Path $ScriptPath
@@ -59,6 +60,11 @@ function Copy-Install {
 }
 
 function Build-SFX () {
+    # Get list of configs
+    Set-Location "$ScriptPath"
+    $Configs = Get-ChildItem "*$ConfigBase" | foreach-object {$_.name.Replace($ConfigBase, "")}
+
+
     Write-Output "Compressing distribution..."
     Set-Location "$InstallDir"
     $SevenZip = "$ScriptPath\7z920_extra"
