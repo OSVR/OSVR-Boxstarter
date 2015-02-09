@@ -1,5 +1,0 @@
-;!@Install@!UTF-8!
-Title="OSVR Development Environment"
-ExecuteFile="Boxstarter\boxstarter.bat"
-ExecuteParameters="OSVR-Dev-Environment"
-;!@InstallEnd@!
