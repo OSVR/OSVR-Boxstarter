@@ -12,7 +12,7 @@ try {
     choco sources add -name myget-boost -source https://www.myget.org/F/boost/
 
     # Build requirements
-    cinst cmake
+    cinst cmake -Version 3.0.2 # TODO remove version override when 3.1 package gets fixed.
     cinst boost-x64-msvc2013 -source "https://www.myget.org/F/boost/"
     cinst boost-x86-msvc2013 -source "https://www.myget.org/F/boost/"
     cinst opencv -source "https://www.myget.org/F/rpavlik-choco/"
