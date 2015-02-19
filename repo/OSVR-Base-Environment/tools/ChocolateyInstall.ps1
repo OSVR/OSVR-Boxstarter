@@ -13,6 +13,11 @@ try {
     cinst 7zip
     cinst notepadplusplus
     cinst notepad2-mod
+    
+    # Install the visual studio 2013 redist, just in case we don't bundle it well enough.
+    choco install vcredist2013
+    # and the 32-bit version, annoying we have to force this.
+    choco install vcredist2013 -x86 --force
 
     Write-ChocolateySuccess 'OSVR-Base-Environment'
 } catch {
