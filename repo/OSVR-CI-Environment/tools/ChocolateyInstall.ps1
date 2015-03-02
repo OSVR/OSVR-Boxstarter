@@ -9,6 +9,7 @@ try {
     # Settings
     Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
     Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart
+    Enable-MicrosoftUpdate # not just windows updates - visual studio updates too.
 
     # Jenkins node updater
     Install-BoxstarterPackage -PackageName OSVR-Jenkins-Updater -DisableReboots
