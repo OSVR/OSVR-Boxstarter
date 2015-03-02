@@ -61,7 +61,9 @@ try {
     cinst bginfo # for marking machine on desktop
 
     # Git configuration
+    git config --global core.autocrlf false
     Invoke-FromTask "git config --global core.autocrlf false" -IdleTimeout 20
+    git config --global core.eol lf
     Invoke-FromTask "git config --global core.eol lf" -IdleTimeout 20
 
     Write-ChocolateySuccess 'OSVR-CI-Environment'
