@@ -18,9 +18,6 @@ try {
     cinst git -params '"/GitOnlyOnPath /NoAutoCrlf"'
     cinst poshgit
 
-    # Install the package management stuff that keeps us sane
-    cinst chocolatey --version=0.9.8.33 # TODO this is the last powershell-only version before the rewrite: remove version override once choco 0.9.9+ is tested and adopted.
-    cinst boxstarter
     cinst nuget.commandline
 
     # Everyone needs 7zip and Notepad++, and notepad2-mod
