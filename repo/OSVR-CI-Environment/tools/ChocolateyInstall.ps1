@@ -26,6 +26,10 @@ try {
 
     # Jenkins node updater
     Install-BoxstarterPackage -PackageName OSVR-Jenkins-Updater -DisableReboots
+    
+    # Install the package management stuff that keeps us sane
+    #cinst chocolatey --version=0.9.8.33 # TODO this is the last powershell-only version before the rewrite: remove version override once choco 0.9.9+ is tested and adopted.
+    cinst boxstarter
 
     # Add repositories
     # TODO: when choco 0.9.9 hits, this will be the command format instead
