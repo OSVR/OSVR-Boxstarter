@@ -16,7 +16,7 @@
 $OrigDir = $PWD
 $ScriptPath = Split-Path -parent $MyInvocation.MyCommand.Definition
 Set-Location $ScriptPath
-$Version = git describe --tags
+$Version = git describe --tags --always
 $InstallBase = "install"
 $BuildStem = "OSVR-Boxstarter-$Version"
 
