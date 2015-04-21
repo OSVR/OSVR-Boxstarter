@@ -38,6 +38,7 @@
     <Compile Include="repo\OSVR-CI-Environment\OSVR-CI-Environment.nuspec" />
     <Compile Include="repo\OSVR-CI-Environment\tools\ChocolateyInstall.ps1" />
     <Compile Include="repo\OSVR-Dev-Environment\OSVR-Dev-Environment.nuspec" />
+    <Compile Include="repo\OSVR-Dev-Environment\tools\ChocolateyInstall.ps1" />
     <Compile Include="repo\OSVR-General-Environment\OSVR-General-Environment.nuspec" />
     <Compile Include="repo\OSVR-General-Environment\tools\ChocolateyInstall.ps1" />
     <Compile Include="repo\OSVR-Jenkins-Updater\OSVR-Jenkins-Updater.nuspec" />
@@ -53,6 +54,7 @@
     <Folder Include="repo\OSVR-CI-Environment\" />
     <Folder Include="repo\OSVR-CI-Environment\tools\" />
     <Folder Include="repo\OSVR-Dev-Environment\" />
+    <Folder Include="repo\OSVR-Dev-Environment\tools\" />
     <Folder Include="repo\OSVR-General-Environment\" />
     <Folder Include="repo\OSVR-General-Environment\tools\" />
     <Folder Include="repo\OSVR-Jenkins-Updater\" />
