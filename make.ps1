@@ -29,6 +29,9 @@ function Get-RepoFullPath ($RelativePath) {
 
 $InstallDir = Get-RepoFullPath "$InstallBase\$BuildStem"
 
+# Check for nuget
+$nuget = Get-Command -ErrorAction Stop nuget
+
 
 Write-Output "Building OSVR Boxstarter Packages, release $Version"
 
@@ -52,17 +55,13 @@ function Clean {
 function Build-Packages {
     Write-Output "Building Boxstarter packages..."
     Import-Module Boxstarter.Chocolatey
-    #$OrigLocalRepo = (Get-BoxStarterConfig)["LocalRepo"]
 
-    #$Boxstarter.LocalRepo = Get-RepoFullPath "repo"
-    #Invoke-BoxstarterBuild -all
     Set-Location (Get-RepoFullPath "repo")
     foreach ($nuspec in @(Get-ChildItem -path "$PWD\*.nuspec" -recurse)) {
         Set-Location $nuspec.Directory.Parent.FullName
-        nuget pack (join-path $nuspec.Directory $nuspec.Name) -NoPackageAnalysis -NonInteractive
+        & $nuget pack (join-path $nuspec.Directory $nuspec.Name) -NoPackageAnalysis -NonInteractive
     }
 
-    #Set-BoxstarterConfig -LocalRepo $OrigLocalRepo
 }
 
 function Copy-Install {
