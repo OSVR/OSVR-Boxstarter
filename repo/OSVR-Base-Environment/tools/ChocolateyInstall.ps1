@@ -15,20 +15,20 @@
 # OSVR Base Environment
 try {
     # Git with the correct params
-    cinst git -params '"/GitOnlyOnPath /NoAutoCrlf"'
-    cinst poshgit
+    choco install -y git -params '"/GitOnlyOnPath /NoAutoCrlf"'
+    choco install -y poshgit
 
-    cinst nuget.commandline
+    choco install -y nuget.commandline
 
     # Everyone needs 7zip and Notepad++, and notepad2-mod
-    cinst 7zip
-    cinst notepadplusplus
-    cinst notepad2-mod
+    choco install -y 7zip
+    choco install -y notepadplusplus
+    choco install -y notepad2-mod
     
     # Install the visual studio 2013 redist, just in case we don't bundle it well enough.
-    choco install vcredist2013
+    choco install -y install vcredist2013
     # and the 32-bit version, annoying we have to force this.
-    choco install vcredist2013 -x86 --force
+    choco install -y install vcredist2013 -x86 -f
 
     Write-ChocolateySuccess 'OSVR-Base-Environment'
 } catch {

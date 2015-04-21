@@ -19,11 +19,11 @@ try {
     Install-BoxstarterPackage -PackageName OSVR-Base-Environment -DisableReboots
 
     # Git works nicer with this
-    cinst git-credential-winstore
+    choco install -y git-credential-winstore
 
     # Markdown tools
-    cinst pandoc
-    cinst markpad
+    choco install -y pandoc
+    choco install -y markpad
     # TODO package CuteMarkEd
 
     Write-ChocolateySuccess 'OSVR-General-Environment'

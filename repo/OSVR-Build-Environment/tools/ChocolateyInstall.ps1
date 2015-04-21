@@ -26,13 +26,13 @@ try {
     choco sources add -name myget-boost -source https://www.myget.org/F/boost/
 
     # Build requirements
-    cinst cmake -Version 3.0.2 # TODO remove version override when 3.1 package gets fixed.
-    cinst boost-x64-msvc2013 -source "https://www.myget.org/F/boost/"
-    cinst boost-x86-msvc2013 -source "https://www.myget.org/F/boost/"
-    cinst opencv -source "https://www.myget.org/F/rpavlik-choco/"
+    choco install -y cmake -Version 3.0.2 # TODO remove version override when 3.1 package gets fixed.
+    choco install -y boost-x64-msvc2013 -source "https://www.myget.org/F/boost/"
+    choco install -y boost-x86-msvc2013 -source "https://www.myget.org/F/boost/"
+    choco install -y opencv -source "https://www.myget.org/F/rpavlik-choco/"
 
     # Required for jsoncpp build and assorted good things.
-    cinst python2
+    choco install -y python2
 
     Write-ChocolateySuccess 'OSVR-Build-Environment'
 } catch {

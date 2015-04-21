@@ -29,7 +29,7 @@ try {
     
     # Install the package management stuff that keeps us sane
     #cinst chocolatey --version=0.9.8.33 # TODO this is the last powershell-only version before the rewrite: remove version override once choco 0.9.9+ is tested and adopted.
-    cinst boxstarter
+    choco install -y boxstarter
 
     # Add repositories
     # TODO: when choco 0.9.9 hits, this will be the command format instead
@@ -38,8 +38,8 @@ try {
     choco sources add -name myget-oculus -source https://www.myget.org/F/oculus-rift/
 
     # Packages
-    cinst javaruntime
-    cinst dotnet4.5
+    choco install -y javaruntime
+    choco install -y dotnet4.5
 
     $HasVS2013 = $false
     $VSReg = 'Microsoft\DevDiv\vs\Servicing\12.0'
@@ -62,20 +62,20 @@ try {
     # TODO remove the external source here once 12.0.31101.1 is approved
     # https://chocolatey.org/packages/VisualStudioExpress2013WindowsDesktop
     if (!$HasVS2013) {
-        cinst VisualStudioExpress2013WindowsDesktop -source "https://www.myget.org/F/rpavlik-choco/"
+        choco install -y VisualStudioExpress2013WindowsDesktop -source "https://www.myget.org/F/rpavlik-choco/"
     }
 
-    cinst vcexpress2010
+    choco install -y vcexpress2010
     #cinst visualstudio2012wdx
 
     # Note that this does not license Unity - you still have a first-run thing there.
-    cinst unity -source "https://www.myget.org/F/unity/"
+    choco install -y unity -source "https://www.myget.org/F/unity/"
     #cinst qt-sdk-windows-x86-msvc2013_opengl
 
-    cinst oculus-sdk -source "https://www.myget.org/F/oculus-rift/"
-    cinst oculus-runtime -source "https://www.myget.org/F/oculus-rift/"
+    choco install -y oculus-sdk -source "https://www.myget.org/F/oculus-rift/"
+    choco install -y oculus-runtime -source "https://www.myget.org/F/oculus-rift/"
 
-    cinst bginfo # for marking machine on desktop
+    choco install -y bginfo # for marking machine on desktop
 
     # Git configuration
     git config --global core.autocrlf false

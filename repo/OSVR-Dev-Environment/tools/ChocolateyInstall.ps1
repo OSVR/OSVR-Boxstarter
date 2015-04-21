@@ -20,18 +20,18 @@ try {
     Install-BoxstarterPackage -PackageName OSVR-Build-Environment -DisableReboots
 
     # Packages
-    cinst sysinternals
-    cinst putty
-    cinst winmerge
-    cinst powershell4
-    cinst sumatrapdf
-    cinst winscp
-    cinst git-credential-winstore
-    cinst tortoisemerge
+    choco install -y sysinternals
+    choco install -y putty
+    choco install -y winmerge
+    choco install -y powershell4
+    choco install -y sumatrapdf
+    choco install -y winscp
+    choco install -y git-credential-winstore
+    choco install -y tortoisemerge
 
     # Markdown tools
-    cinst pandoc
-    cinst markpad
+    choco install -y pandoc
+    choco install -y markpad
     # TODO package CuteMarkEd
 
     Write-ChocolateySuccess 'OSVR-Dev-Environment'
