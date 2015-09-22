@@ -12,9 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+$JenkinsRoot = "C:\jenkins-node"
+
 try {
-    $JenkinsRoot = "C:\jenkins-node"
-    if (Test-Path $JenkinsRoot) {} else {
+
+    if (!(Test-Path $JenkinsRoot)) {
         mkdir -Path $JenkinsRoot # -ErrorAction SilentlyContinue
     }
     $UpdateScriptName = "UpdateJar.ps1"
