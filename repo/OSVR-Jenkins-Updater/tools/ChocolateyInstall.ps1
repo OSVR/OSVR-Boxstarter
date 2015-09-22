@@ -22,7 +22,7 @@ try {
     $UpdateScriptName = "UpdateJar.ps1"
     $FullUpdateScriptName = Join-Path $JenkinsRoot $UpdateScriptName
     Copy-Item (Join-Path (Get-PackageRoot($MyInvocation)) $UpdateScriptName) "$FullUpdateScriptName" -Force
-    Invoke-Expression "$FullUpdateScriptName"
+    Invoke-Expression "$FullUpdateScriptName -SkipWait"
     Write-ChocolateySuccess 'OSVR-Jenkins-Updater'
 } catch {
   Write-ChocolateyFailure 'OSVR-Jenkins-Updater' $($_.Exception.Message)

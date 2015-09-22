@@ -12,8 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$JenkinsServer = "http://ci.osvr.com"
+param(
+  [string] $JenkinsServer = $env:JENKINS_HOST,
+  [switch] $SkipWait
+)
+
 $NodeRoot = split-path -parent $MyInvocation.MyCommand.Definition
+
+# This is fixed - just listed here to avoid magic constants elsewhere
 $ServiceName = "Jenkins Slave"
 
 Write-Output "In UpdateJar - checking for the Jenkins service..."
@@ -39,4 +45,10 @@ $webclient.DownloadFile($url,$file)
 if ($HasJenkinsService) {
     Write-Output "Starting Jenkins service..."
     Start-Service -displayname $servicename
+}
+
+if ($SkipWait) {
+    Write-Output 'Exiting directly, as requested.'
+} else {
+    Read-Host 'Press the enter key to exit'
 }
