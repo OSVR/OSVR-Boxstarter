@@ -21,11 +21,6 @@ try {
     # Git works nicer with this
     choco install -y git-credential-winstore
 
-    # Markdown tools
-    choco install -y pandoc
-    choco install -y markpad
-    # TODO package CuteMarkEd
-
     Write-ChocolateySuccess 'OSVR-General-Environment'
 } catch {
     Write-ChocolateyFailure 'OSVR-General-Environment' $($_.Exception.Message)

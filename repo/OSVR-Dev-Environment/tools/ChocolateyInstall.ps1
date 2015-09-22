@@ -29,11 +29,6 @@ try {
     choco install -y git-credential-winstore
     choco install -y tortoisemerge
 
-    # Markdown tools
-    choco install -y pandoc
-    choco install -y markpad
-    # TODO package CuteMarkEd
-
     Write-ChocolateySuccess 'OSVR-Dev-Environment'
 } catch {
     Write-ChocolateyFailure 'OSVR-Dev-Environment' $($_.Exception.Message)
