@@ -20,14 +20,9 @@ try {
     Install-BoxstarterPackage -PackageName OSVR-Build-Environment -DisableReboots
 
     # Packages
-    choco install -y sysinternals
-    choco install -y putty
     choco install -y winmerge
     choco install -y powershell4
-    choco install -y sumatrapdf
-    choco install -y winscp
     choco install -y git-credential-winstore
-    choco install -y tortoisemerge
 
     Write-ChocolateySuccess 'OSVR-Dev-Environment'
 } catch {
