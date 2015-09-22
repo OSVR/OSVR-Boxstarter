@@ -25,7 +25,7 @@ try {
     choco sources add -name osvr-deps -source https://www.myget.org/F/osvr-deps/
 
     # Build requirements
-    choco install -y cmake -Version 3.0.2 # TODO remove version override when 3.1 package gets fixed.
+    choco install -y cmake
     choco install -y boost-x64-msvc2013 # comes from osvr-deps
     choco install -y boost-x86-msvc2013 # comes from osvr-deps
     choco install -y opencv # updated version comes from osvr-deps
