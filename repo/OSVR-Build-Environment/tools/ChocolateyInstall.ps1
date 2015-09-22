@@ -20,16 +20,15 @@ try {
     # Common install
     Install-BoxstarterPackage -PackageName OSVR-Base-Environment -DisableReboots
 
-    # TODO: when choco 0.9.9 hits, this will be the command instead
-    # choco source add --name="rpavlik-choco" -s="https://www.myget.org/F/rpavlik-choco/"
-    choco sources add -name rpavlik-choco -source https://www.myget.org/F/rpavlik-choco/
-    choco sources add -name myget-boost -source https://www.myget.org/F/boost/
+    # TODO: when choco 0.9.9 hits Boxstarter, this will be the command instead
+    # choco source add --name="osvr-deps" -s="https://www.myget.org/F/osvr-deps/"
+    choco sources add -name osvr-deps -source https://www.myget.org/F/osvr-deps/
 
     # Build requirements
     choco install -y cmake -Version 3.0.2 # TODO remove version override when 3.1 package gets fixed.
-    choco install -y boost-x64-msvc2013 -source "https://www.myget.org/F/boost/"
-    choco install -y boost-x86-msvc2013 -source "https://www.myget.org/F/boost/"
-    choco install -y opencv -source "https://www.myget.org/F/rpavlik-choco/"
+    choco install -y boost-x64-msvc2013 # comes from osvr-deps
+    choco install -y boost-x86-msvc2013 # comes from osvr-deps
+    choco install -y opencv # updated version comes from osvr-deps
 
     # Required for jsoncpp build and assorted good things.
     choco install -y python2
