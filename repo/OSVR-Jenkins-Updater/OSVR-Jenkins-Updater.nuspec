@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>OSVR-Jenkins-Updater</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <authors>Ryan</authors>
     <owners>Ryan</owners>
     <description>Places the update script for the Jenkins jar in c:\jenkins-node</description>
