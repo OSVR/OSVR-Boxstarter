@@ -16,7 +16,6 @@
 try {
     # Git with the correct params
     choco install -y git -params '"/GitOnlyOnPath /NoAutoCrlf"'
-    choco install -y poshgit
 
     choco install -y nuget.commandline
 
@@ -26,9 +25,9 @@ try {
     choco install -y notepad2-mod
     
     # Install the visual studio 2013 redist, just in case we don't bundle it well enough.
-    choco install -y install vcredist2013
+    choco install -y vcredist2013
     # and the 32-bit version, annoying we have to force this.
-    choco install -y install vcredist2013 -x86 -f
+    choco install -y vcredist2013 -x86 -f
 
     Write-ChocolateySuccess 'OSVR-Base-Environment'
 } catch {
