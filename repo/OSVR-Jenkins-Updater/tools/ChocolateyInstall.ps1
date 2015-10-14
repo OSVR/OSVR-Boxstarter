@@ -19,10 +19,14 @@ try {
     if (!(Test-Path $JenkinsRoot)) {
         mkdir -Path $JenkinsRoot # -ErrorAction SilentlyContinue
     }
-    $UpdateScriptName = "UpdateJar.ps1"
-    $FullUpdateScriptName = Join-Path $JenkinsRoot $UpdateScriptName
-    Copy-Item (Join-Path (Get-PackageRoot($MyInvocation)) $UpdateScriptName) "$FullUpdateScriptName" -Force
-    Invoke-Expression "$FullUpdateScriptName -SkipWait"
+    # Copy the stop-service script first, and run it.
+    # Then, we can copy the update-jar script and run it
+    $ScriptsInOrder = @('StopService.ps1', 'UpdateJar.ps1')
+    ForEach ($ScriptName in $ScriptsInOrder) {
+        $FullScriptName = Join-Path $JenkinsRoot $ScriptName
+        Copy-Item (Join-Path (Get-PackageRoot($MyInvocation)) $ScriptName) "$FullScriptName" -Force
+        Invoke-Expression "$FullScriptName -SkipWait"
+    }
     Write-ChocolateySuccess 'OSVR-Jenkins-Updater'
 } catch {
   Write-ChocolateyFailure 'OSVR-Jenkins-Updater' $($_.Exception.Message)
