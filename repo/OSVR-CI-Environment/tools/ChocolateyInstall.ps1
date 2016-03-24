@@ -26,7 +26,7 @@ try {
 
     # Jenkins node updater
     Install-BoxstarterPackage -PackageName OSVR-Jenkins-Updater -DisableReboots
-    
+
     # Install the package management stuff that keeps us sane
     #cinst chocolatey --version=0.9.8.33 # TODO this is the last powershell-only version before the rewrite: remove version override once choco 0.9.9+ is tested and adopted.
     choco install -y boxstarter
@@ -76,6 +76,14 @@ try {
     choco install -y oculus-runtime -source "https://www.myget.org/F/oculus-rift/"
 
     choco install -y bginfo # for marking machine on desktop
+
+    # For building OSVR-Config tool
+    choco install nodejs -version 4.4.0 -y
+    choco pin add -name nodejs
+    choco pin add -name nodejs.install
+    npm upgrade -g npm
+    npm install -g bower
+    npm install -g gulp
 
     # Git configuration
     git config --global core.autocrlf false
