@@ -30,7 +30,8 @@ try {
     # These come from osvr-deps, but for some reason the above doesn't trigger yet.
     choco install -y boost-x64-msvc2013 -source https://www.myget.org/F/osvr-deps/ # comes from osvr-deps
     choco install -y boost-x86-msvc2013 -source https://www.myget.org/F/osvr-deps/ # comes from osvr-deps
-    choco install -y opencv -source https://www.myget.org/F/osvr-deps/ # updated version comes from osvr-deps
+    choco install -y opencv -version 2.4.10.20150209 -source https://www.myget.org/F/osvr-deps/ # updated version comes from osvr-deps
+    choco pin add -name opencv
 
     # Required for jsoncpp build and assorted good things.
     choco install -y python2
