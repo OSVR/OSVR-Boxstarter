@@ -85,6 +85,9 @@ try {
     npm install -g bower
     npm install -g gulp
 
+    # For building the installers
+    choco install -y wixtoolset
+
     # Git configuration
     git config --global core.autocrlf false
     Invoke-FromTask "git config --global core.autocrlf false" -IdleTimeout 20
