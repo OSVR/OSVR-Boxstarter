@@ -33,9 +33,6 @@ try {
     choco install -y opencv -version 2.4.10.20150209 -source https://www.myget.org/F/osvr-deps/ # updated version comes from osvr-deps
     choco pin add -name opencv
 
-    # Required for jsoncpp build and assorted good things.
-    choco install -y python2
-
     Write-ChocolateySuccess 'OSVR-Build-Environment'
 } catch {
     Write-ChocolateyFailure 'OSVR-Build-Environment' $($_.Exception.Message)
